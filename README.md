@@ -1,4 +1,26 @@
 # SpaceGame
-Space Arcade Shooter.
+Download Runnable Jar File "Space Game.jar" to play game.
+Requires JRE 8
 
-Game Description:
+# Contributors:
+
+ - Richard Valente (@Clicuter)
+
+*** To Help Contribute, Please Email: clicuter@gmail.com
+# Game Description:
+
+  A survival space arcade shooter that pits players against an endless invasion of alien space ships. 
+  
+  Players Can:
+   - Use 4 Different Weapons that can be upgraded throughout each round.
+   - Level-Up and earn coins in order to upgrade and specialize ship
+   - Test luck with a variety of different powerUps
+  
+# Targeted Platform:
+
+  - Windows, Mac, Linux (Any Computer running JRE 8)
+
+
+# Patch Notes/Features:
+  - 
+  
