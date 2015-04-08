@@ -1,0 +1,32 @@
+Coins 1915
+
+Experience 3367
+
+Level 5
+
+Mastery 0
+
+fireRateCounter 0
+
+fireRatePowerUpCounter 0
+
+blastRadiusCounter 0
+
+bonusDamageCounter 0
+
+enemySpeedCounter 0
+
+postDamageUnkillableCounter 0
+
+shieldPowerUpCounter 0
+
+gainLivesCounter 0
+
+speedCounter 0
+
+speedPowerUpCounter 0
+
+powerUpDropRateCounter 0
+
+extraCoinsCounter 0
+
