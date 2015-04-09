@@ -22,5 +22,5 @@ Requires JRE 8
 
 
 # Patch Notes/Features:
-  - 
+  - Yolo
   
