@@ -30,3 +30,4 @@ Requires JRE 8
   - PowerUps Difference
   - Changes So Data Can Be Fetched
   - Edited on GitHub webpage
+  - More Changes
