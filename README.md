@@ -19,8 +19,6 @@ Requires JRE 8
 # Targeted Platform:
 
   - Windows, Mac, Linux (Any Computer running JRE 8)
-  - More Laptop Editing Testing
-
 
 # Patch Notes/Features:
   - 
@@ -29,9 +27,3 @@ Requires JRE 8
   - ScatterShot Slower Fire Rate Low Damage Shoots 3 Bullets
   - Bullet Medium Fire Rate Medium Damage
   - PowerUps Difference
-  - Changes So Data Can Be Fetched
-  - Edited on GitHub webpage
-  - More Changes
-  - Edited on Laptop Figuring Out How To Commit
-  - Editing Multiple lines in order to make file Staged
-  - Final Test
