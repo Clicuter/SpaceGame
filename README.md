@@ -23,4 +23,8 @@ Requires JRE 8
 
 # Patch Notes/Features:
   - 
-  
+  - Rockets Slower Fire Rate Higher Damage
+  - Laser   Faster Fire Rate Lower Damage
+  - ScatterShot Slower Fire Rate Low Damage Shoots 3 Bullets
+  - Bullet Medium Fire Rate Medium Damage
+  - PowerUps Difference
