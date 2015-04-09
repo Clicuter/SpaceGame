@@ -28,3 +28,4 @@ Requires JRE 8
   - ScatterShot Slower Fire Rate Low Damage Shoots 3 Bullets
   - Bullet Medium Fire Rate Medium Damage
   - PowerUps Difference
+  - Changes So Data Can Be Fetched
