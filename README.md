@@ -19,6 +19,7 @@ Requires JRE 8
 # Targeted Platform:
 
   - Windows, Mac, Linux (Any Computer running JRE 8)
+  - More Laptop Editing Testing
 
 
 # Patch Notes/Features:
@@ -31,3 +32,5 @@ Requires JRE 8
   - Changes So Data Can Be Fetched
   - Edited on GitHub webpage
   - More Changes
+  - Edited on Laptop Figuring Out How To Commit
+  - Editing Multiple lines in order to make file Staged
