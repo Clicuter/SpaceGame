@@ -29,3 +29,4 @@ Requires JRE 8
   - Bullet Medium Fire Rate Medium Damage
   - PowerUps Difference
   - Changes So Data Can Be Fetched
+  - Edited on GitHub webpage
