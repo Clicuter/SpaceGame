@@ -40,8 +40,10 @@ public class EnemyZigZag extends GameObject implements EntityC{
 			{
 			leftBoundary = 452 - (rightBoundary - leftBoundary);
 			rightBoundary = 452;
+			xSpeed = (xSpeed * -1);
 			x = 451;
 			}
+			else
 			xSpeed = (xSpeed * -1);
 
 		}
@@ -51,8 +53,10 @@ public class EnemyZigZag extends GameObject implements EntityC{
 			{
 				rightBoundary = 58 + (rightBoundary - leftBoundary);
 				leftBoundary = 58;
+				xSpeed = (xSpeed * -1);
 				x = 57;
 			}
+			else
 			xSpeed = (xSpeed * -1);
 		}
 		x += (xSpeed * Waves.speed * powerUpStopwatch.getMultiplier());
