@@ -77,6 +77,7 @@ public class Game extends Canvas implements Runnable {
 		GAME,
 		PAUSED,
 		POSTGAME,
+		MASTERY,
 	};
 	
 	public static STATE State = STATE.MENU;
@@ -272,6 +273,12 @@ public class Game extends Canvas implements Runnable {
 			postgame.tick();
 		}
 		///////////////////////////////// POSTGAME STATE
+		///////////////////////////////// MASTERY STATE
+		if(State == STATE.MASTERY)
+		{
+			
+		}
+		///////////////////////////////// MASTERY STATE
 	}
 	
 	private void render()
@@ -335,6 +342,13 @@ public class Game extends Canvas implements Runnable {
 			postgame.render(g);
 		}
 		//////////////////////////////// POST-GAME STATE
+		//////////////////////////////// MASTERY STATE
+		if(State == STATE.POSTGAME)
+		{
+			
+		}
+		//////////////////////////////// MASTERY STATE
+		
 		g.dispose();
 		bs.show();
 	}

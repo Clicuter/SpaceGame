@@ -232,6 +232,7 @@ public class MainMenuMouseInput implements MouseListener, MouseMotionListener {
 				if(multiplayerbuttonclicked)
 				{
 					multiplayerbuttonclicked = false;
+					Game.State = STATE.MASTERY;
 					//GO TO MULTIPLAYER
 				}
 				
