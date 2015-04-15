@@ -16,8 +16,10 @@ import com.game.src.main.classes.EntityA;
 import com.game.src.main.classes.EntityB;
 import com.game.src.main.classes.EntityC;
 import com.game.src.main.menu.MainMenuMouseInput;
+import com.game.src.main.menu.MasteryButtonActionHandler;
 import com.game.src.main.menu.Menu;
 import com.game.src.main.menu.PostGame;
+import com.game.src.main.menu.MasteryGUI;
 import com.game.src.main.menu.TexturesMenu;
 
 public class Game extends Canvas implements Runnable {
@@ -52,9 +54,11 @@ public class Game extends Canvas implements Runnable {
 	private TexturesMenu texmenu;
 	private Menu menu;
 	private PostGame postgame;
+	private MasteryGUI masteryGUI;
 	private Coins coins;
 	private Experience exp;
 	private Mastery mastery;
+	private MasteryButtonActionHandler masterybuttonactionhandler;
 	
 	private Background back;
 	private Points points;
@@ -108,12 +112,14 @@ public class Game extends Canvas implements Runnable {
 		}
 		tex = new Textures(this);
 		texmenu = new TexturesMenu(this);
-		mastery = new Mastery();
+		mastery = new Mastery(filehandler);
+		masterybuttonactionhandler = new MasteryButtonActionHandler(mastery);
+		masteryGUI = new MasteryGUI(mastery, tex, masterybuttonactionhandler);
 		c = new Controller(tex);
 		coins = new Coins(c, FileHandler.coins);
 		mastery.addCoins(coins);
-		this.addMouseListener(new MainMenuMouseInput(coins, this));
-		this.addMouseMotionListener(new MainMenuMouseInput(coins, this));
+		this.addMouseListener(new MainMenuMouseInput(coins, this, masteryGUI));
+		this.addMouseMotionListener(new MainMenuMouseInput(coins, this, masteryGUI));
 		addKeyListener(new KeyInput(this));
 		menu = new Menu(texmenu);
 		postgame = new PostGame(tex);
@@ -126,6 +132,8 @@ public class Game extends Canvas implements Runnable {
 		back = new Background();
 		points = new Points();
 		exp = new Experience(points, c, FileHandler.experience, FileHandler.level);
+		mastery.updatePoints();
+		mastery.savePoints();
 		waves = new Waves(c, tex);
 		upgrades = new Upgrades(c, tex);
 		c.addUpgrades(upgrades);
@@ -276,7 +284,7 @@ public class Game extends Canvas implements Runnable {
 		///////////////////////////////// MASTERY STATE
 		if(State == STATE.MASTERY)
 		{
-			
+			masteryGUI.tick();
 		}
 		///////////////////////////////// MASTERY STATE
 	}
@@ -343,9 +351,11 @@ public class Game extends Canvas implements Runnable {
 		}
 		//////////////////////////////// POST-GAME STATE
 		//////////////////////////////// MASTERY STATE
-		if(State == STATE.POSTGAME)
+		if(State == STATE.MASTERY)
 		{
-			
+			g.drawImage(background, 0, back.getY(), this);
+			g.drawImage(background, 0, back.getY2(), this);
+			masteryGUI.render(g);
 		}
 		//////////////////////////////// MASTERY STATE
 		

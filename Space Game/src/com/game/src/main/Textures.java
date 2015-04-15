@@ -8,7 +8,7 @@ public class Textures {
 	public BufferedImage powerupshield, powerupfirerate, powerupstopwatch, powerupspeed, playershield, playerspeed, playerstopwatch, playerfirerate;
 	public BufferedImage enemyhuge, homebuttonnormal, homebuttonhovered, homebuttonclicked;
 	public BufferedImage againbuttonnormal, againbuttonhovered, againbuttonclicked, lvl1;
-	public BufferedImage lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10;
+	public BufferedImage lvl2, lvl3, lvl4, lvl5, lvl6, lvl7, lvl8, lvl9, lvl10, lvl11, lvl12, lvl13, lvl14, lvl15, lvl16, lvl17, lvl18, lvl19, lvl20;
 	private SpriteSheet ss;
 	
 	public Textures(Game game)
@@ -65,6 +65,16 @@ public class Textures {
 		lvl8 = ss.grabImage(14, 15, 32, 32);
 		lvl9 = ss.grabImage(15, 15, 32, 32);
 		lvl10 = ss.grabImage(16, 15, 32, 32);
+		lvl11 = ss.grabImage(17, 15, 32, 32);
+		lvl12 = ss.grabImage(18, 15, 32, 32);
+		lvl13 = ss.grabImage(19, 15, 32, 32);
+		lvl14 = ss.grabImage(20, 15, 32, 32);
+		lvl15 = ss.grabImage(21, 15, 32, 32);
+		lvl16 = ss.grabImage(22, 15, 32, 32);
+		lvl17 = ss.grabImage(23, 15, 32, 32);
+		lvl18 = ss.grabImage(24, 15, 32, 32);
+		lvl19 = ss.grabImage(25, 15, 32, 32);
+		lvl20 = ss.grabImage(26, 15, 32, 32);
 		
 	}
 	

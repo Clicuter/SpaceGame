@@ -111,6 +111,46 @@ public void tick()
 		{
 			g.drawImage(tex.lvl10, 325, 270, 40, 40, null);
 		}
+		else if(Experience.getLevel() == 11)
+		{
+			g.drawImage(tex.lvl11, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 12)
+		{
+			g.drawImage(tex.lvl12, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 13)
+		{
+			g.drawImage(tex.lvl13, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 14)
+		{
+			g.drawImage(tex.lvl14, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 15)
+		{
+			g.drawImage(tex.lvl15, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 16)
+		{
+			g.drawImage(tex.lvl16, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 17)
+		{
+			g.drawImage(tex.lvl17, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 18)
+		{
+			g.drawImage(tex.lvl18, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 19)
+		{
+			g.drawImage(tex.lvl19, 325, 270, 40, 40, null);
+		}
+		else if(Experience.getLevel() == 20)
+		{
+			g.drawImage(tex.lvl20, 325, 270, 40, 40, null);
+		}
 		
 		////////////////////////////////////////////////
 		////////////////////////////////////////////////
