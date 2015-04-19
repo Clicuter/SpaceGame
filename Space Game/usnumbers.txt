@@ -1,12 +1,12 @@
-Coins 2400
+Coins 1469
 
-Experience 40001
+Experience 5334
 
-Level 20
+Level 7
 
-Mastery 19
+Mastery 6
 
-fireRateCounter 0
+fireRateCounter 6
 
 fireRatePowerUpCounter 0
 

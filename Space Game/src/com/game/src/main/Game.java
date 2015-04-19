@@ -21,6 +21,7 @@ import com.game.src.main.menu.Menu;
 import com.game.src.main.menu.PostGame;
 import com.game.src.main.menu.MasteryGUI;
 import com.game.src.main.menu.TexturesMenu;
+import com.game.src.main.menu.buttonPopUp;
 
 public class Game extends Canvas implements Runnable {
 	
@@ -259,6 +260,7 @@ public class Game extends Canvas implements Runnable {
 			powerupstopwatch.tick();
 			powerupspeed.tick();
 			powerupshield.tick();
+			waves.tick2();
 			if(updates >= 59)
 			{
 				nextWave++;
@@ -287,6 +289,11 @@ public class Game extends Canvas implements Runnable {
 			masteryGUI.tick();
 		}
 		///////////////////////////////// MASTERY STATE
+		///////////////////////////////// MENU STATE
+		if(State == STATE.MENU)
+		{
+		}
+		///////////////////////////////// MENU STATE
 	}
 	
 	private void render()
@@ -333,6 +340,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(background, 0, back.getY(), this);
 			g.drawImage(background, 0, back.getY2(), this);
 			menu.render(g);
+
 		}
 		//////////////////////////////// MENU STATE
 		//////////////////////////////// POST-GAME STATE
@@ -541,6 +549,9 @@ public class Game extends Canvas implements Runnable {
 		c.clearEntities();
 		Experience.updateStoredVars();
 		Coins.updateSavedCoins();
+		mastery.updatePoints();
+		mastery.updateBonuses();
+		mastery.savePoints();
 		try {
 			filehandler.storeInfo();
 		} catch (IOException e) {

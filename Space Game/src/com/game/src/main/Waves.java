@@ -20,8 +20,10 @@ public class Waves {
 	private int ypos;
 	public static double speed;
 	public static int wave;
+	private int oldwave;
 	private double spawner;
 	private int antiglitch;
+	private Animations waveAnimation;
 	
 	public Waves(Controller c, Textures tex)
 	{
@@ -29,7 +31,9 @@ public class Waves {
 		this.tex = tex;
 		speed = 1;
 		wave = 1;
+		oldwave = 0;
 		antiglitch = 0;
+		waveAnimation = new Animations(230, 200, "Wave 1");
 	}
 	
 	public void tick()
@@ -39,59 +43,109 @@ public class Waves {
 			Wave1();
 			speed = 1.1;
 			wave = 1;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 300)
 		{
 			Wave2();
 			speed = 1.2;
 			wave = 2;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 500)
 		{
 			Wave3();
 			speed = 1.25;
 			wave = 3;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 800)
 		{
 			Wave4();
 			speed = 1.4;
 			wave = 4;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 1000)
 		{
 			Wave5();
 			speed = 1.5;
 			wave = 5;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 1500)
 		{
 			Wave6();
 			speed = 1.6;
 			wave = 6;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 2000)
 		{
 			Wave7();
 			speed = 1.75;
 			wave = 7;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() <= 2600)
 		{
 			Wave8();
 			speed = 1.9;
 			wave = 8;
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
 		else if(Points.getPoints() >= 2600)
 		{
 			WaveFinal();
+			if(oldwave != wave)
+			{
+				waveAnimation.setAnimationText("Wave " + wave);
+				waveAnimation.playAnimation();
+			}
 		}
+		oldwave = wave;
 	}
-	
+	public void tick2()
+	{
+		waveAnimation.tick();
+	}
 	public void render(Graphics g)
 	{
 		g.setColor(Color.white);
 		g.drawString(("" + wave), 580, 340);
+		waveAnimation.render(g);
 	}
 	
 	private void Wave1()

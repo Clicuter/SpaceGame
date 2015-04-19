@@ -31,6 +31,7 @@ public class Controller {
 	private int killCounter;
 	private double gainLivesMultiplier;
 	private double powerUpDropRateMultiplier;
+	private Animations extraLife;
 	
 	EntityA enta;
 	EntityB entb;
@@ -49,6 +50,7 @@ public class Controller {
 		weaponDropped = false;
 		gainLivesMultiplier = 1;
 		powerUpDropRateMultiplier = 1;
+		extraLife = new Animations(200, 200, "+1 Extra Life");
 	}
 	
 	public void tick()
@@ -84,10 +86,11 @@ public class Controller {
 				}
 				
 			}
-			if(enemiesKilled == extraLives * killCounter)
+			if(enemiesKilled >= extraLives * killCounter)
 			{
 				extraLives++;
 				enta.setHealth(1);
+				extraLife.playAnimation();
 			}
 			enta.tick();
 		}
@@ -210,10 +213,12 @@ public class Controller {
 			if(Physics.Collision(entd, ea))
 			{
 				upgrades.bulletPickup(entd.getType());
+				System.out.println("" + entd.getType());
 				removeEntity(entd);
 			}
 			entd.tick();
 		}
+		extraLife.tick();
 		 
 	}
 	
@@ -255,6 +260,7 @@ public class Controller {
 			
 			ente.render(g);
 		}
+		extraLife.render(g);
 	}
 	
 	public void addEntity(EntityA block)

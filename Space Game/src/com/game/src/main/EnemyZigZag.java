@@ -54,7 +54,7 @@ public class EnemyZigZag extends GameObject implements EntityC{
 				rightBoundary = 58 + (rightBoundary - leftBoundary);
 				leftBoundary = 58;
 				xSpeed = (xSpeed * -1);
-				x = 57;
+				x = 59;
 			}
 			else
 			xSpeed = (xSpeed * -1);
