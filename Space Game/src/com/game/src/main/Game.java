@@ -16,18 +16,21 @@ import com.game.src.main.classes.EntityA;
 import com.game.src.main.classes.EntityB;
 import com.game.src.main.classes.EntityC;
 import com.game.src.main.menu.MainMenuMouseInput;
+import com.game.src.main.menu.MasteryButtonActionHandler;
 import com.game.src.main.menu.Menu;
 import com.game.src.main.menu.PostGame;
+import com.game.src.main.menu.MasteryGUI;
 import com.game.src.main.menu.TexturesMenu;
+import com.game.src.main.menu.buttonPopUp;
 
 public class Game extends Canvas implements Runnable {
 	
 
 
 	private static final long serialVersionUID = 1L;
-	public static final int WIDTH = 320;
-	public static final int HEIGHT = WIDTH / 12 * 9;
-	public static final int SCALE = 2;
+	public static final int WIDTH = 540;
+	public static final int HEIGHT = 960;
+	public static final int SCALE = 1;
 	public final String TITLE = "2D Space Game";
 
 	private boolean running = false;
@@ -40,6 +43,7 @@ public class Game extends Canvas implements Runnable {
 	private BufferedImage rockwall = null;
 	private BufferedImage side_menu = null;
 	private BufferedImage menu_buttons = null;
+	private BufferedImage stars = null;
 	
 	private long nextShot;
 	private int nextWave;
@@ -52,9 +56,11 @@ public class Game extends Canvas implements Runnable {
 	private TexturesMenu texmenu;
 	private Menu menu;
 	private PostGame postgame;
+	private MasteryGUI masteryGUI;
 	private Coins coins;
 	private Experience exp;
 	private Mastery mastery;
+	private MasteryButtonActionHandler masterybuttonactionhandler;
 	
 	private Background back;
 	private Points points;
@@ -77,6 +83,7 @@ public class Game extends Canvas implements Runnable {
 		GAME,
 		PAUSED,
 		POSTGAME,
+		MASTERY,
 	};
 	
 	public static STATE State = STATE.MENU;
@@ -101,18 +108,21 @@ public class Game extends Canvas implements Runnable {
 			rockwall = loader.loadImage("/rockwall.png");
 			side_menu = loader.loadImage("/side_menu.png");
 			menu_buttons = loader.loadImage("/menu_buttons.png");
+			stars = loader.loadImage("/stars.png");
 			filehandler.initialize();
 		}catch(IOException e){
 			e.printStackTrace();
 		}
 		tex = new Textures(this);
 		texmenu = new TexturesMenu(this);
-		mastery = new Mastery();
+		mastery = new Mastery(filehandler);
+		masterybuttonactionhandler = new MasteryButtonActionHandler(mastery);
+		masteryGUI = new MasteryGUI(mastery, tex, masterybuttonactionhandler);
 		c = new Controller(tex);
 		coins = new Coins(c, FileHandler.coins);
 		mastery.addCoins(coins);
-		this.addMouseListener(new MainMenuMouseInput(coins, this));
-		this.addMouseMotionListener(new MainMenuMouseInput(coins, this));
+		this.addMouseListener(new MainMenuMouseInput(coins, this, masteryGUI));
+		this.addMouseMotionListener(new MainMenuMouseInput(coins, this, masteryGUI));
 		addKeyListener(new KeyInput(this));
 		menu = new Menu(texmenu);
 		postgame = new PostGame(tex);
@@ -125,6 +135,8 @@ public class Game extends Canvas implements Runnable {
 		back = new Background();
 		points = new Points();
 		exp = new Experience(points, c, FileHandler.experience, FileHandler.level);
+		mastery.updatePoints();
+		mastery.savePoints();
 		waves = new Waves(c, tex);
 		upgrades = new Upgrades(c, tex);
 		c.addUpgrades(upgrades);
@@ -250,6 +262,7 @@ public class Game extends Canvas implements Runnable {
 			powerupstopwatch.tick();
 			powerupspeed.tick();
 			powerupshield.tick();
+			waves.tick2();
 			if(updates >= 59)
 			{
 				nextWave++;
@@ -259,6 +272,7 @@ public class Game extends Canvas implements Runnable {
 				nextWave = 0;
 				}
 			}
+			
 		}
 			
 		/////////////////////////////////////////////
@@ -272,6 +286,17 @@ public class Game extends Canvas implements Runnable {
 			postgame.tick();
 		}
 		///////////////////////////////// POSTGAME STATE
+		///////////////////////////////// MASTERY STATE
+		if(State == STATE.MASTERY)
+		{
+			masteryGUI.tick();
+		}
+		///////////////////////////////// MASTERY STATE
+		///////////////////////////////// MENU STATE
+		if(State == STATE.MENU)
+		{
+		}
+		///////////////////////////////// MENU STATE
 	}
 	
 	private void render()
@@ -291,24 +316,29 @@ public class Game extends Canvas implements Runnable {
 		////////////////////////////////// GAME STATE
 		if(State == STATE.GAME)
 		{
-		g.drawImage(background, 0, back.getY(), this);
-		g.drawImage(background, 0, back.getY2(), this);
-		g.drawImage(rockwall, 0, back.getY3(), this);
-		g.drawImage(rockwall, 0, back.getY4(), this);
-		g.drawImage(side_menu, 0, 0, this);
+		g.drawImage(background, 0, back.getY(), 549, 976, this);
+		g.drawImage(background, 0, back.getY2(),549, 976, this);
+		g.drawImage(stars, 0, 0, null);
+		g.drawImage(rockwall, 0, back.getY3(), 549, 976,this);
+		g.drawImage(rockwall, 0, back.getY4(),549, 976, this);
+		g.drawRect(440, 860, 100, 100);
 		
-		p.render(g);
 		c.render(g);
-		points.render(g);
-		waves.render(g);
 		powerupfirerate.render(g);
 		powerupstopwatch.render(g);
 		powerupspeed.render(g);
 		powerupshield.render(g);
-		upgrades.render(g);
 		g.setFont(f2);
-		g.drawString("Press [T]", 570, 390);
-		
+		g.drawImage(side_menu, 0, 0, 549, 976, this);
+		g.drawString("Press [T]", 54, 946);
+		powerupfirerate.render(g);
+		powerupstopwatch.render(g);
+		powerupspeed.render(g);
+		powerupshield.render(g);
+		waves.render(g);
+		points.render(g);
+		upgrades.render(g);
+		p.render(g);
 		}
 		////////////////////////////////// GAME STATE
 		
@@ -318,6 +348,7 @@ public class Game extends Canvas implements Runnable {
 			g.drawImage(background, 0, back.getY(), this);
 			g.drawImage(background, 0, back.getY2(), this);
 			menu.render(g);
+
 		}
 		//////////////////////////////// MENU STATE
 		//////////////////////////////// POST-GAME STATE
@@ -335,6 +366,15 @@ public class Game extends Canvas implements Runnable {
 			postgame.render(g);
 		}
 		//////////////////////////////// POST-GAME STATE
+		//////////////////////////////// MASTERY STATE
+		if(State == STATE.MASTERY)
+		{
+			g.drawImage(background, 0, back.getY(), this);
+			g.drawImage(background, 0, back.getY2(), this);
+			masteryGUI.render(g);
+		}
+		//////////////////////////////// MASTERY STATE
+		
 		g.dispose();
 		bs.show();
 	}
@@ -517,6 +557,9 @@ public class Game extends Canvas implements Runnable {
 		c.clearEntities();
 		Experience.updateStoredVars();
 		Coins.updateSavedCoins();
+		mastery.updatePoints();
+		mastery.updateBonuses();
+		mastery.savePoints();
 		try {
 			filehandler.storeInfo();
 		} catch (IOException e) {

@@ -24,7 +24,7 @@ public class Enemy extends GameObject implements EntityC{
 	
 	public void tick()
 	{
-		y += (2.5 * Waves.speed * powerUpStopwatch.getMultiplier() * Mastery.getEnemySpeedMultiplier());
+		y += (3 * Waves.speed * powerUpStopwatch.getMultiplier() * Mastery.getEnemySpeedMultiplier());
 		
 	}
 	

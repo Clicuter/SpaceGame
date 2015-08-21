@@ -1,5 +1,7 @@
 package com.game.src.main;
 
+import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 
 
@@ -8,12 +10,14 @@ public class Points {
 	private static int points;
 	private static double meters;
 	private double goalmeters;
+	private Font pointFont;
 	
 	public Points()
 	{
 		points = 0;
 		meters = 0;
 		goalmeters = 2;
+		pointFont = new Font("arial", 20, 20);
 	}
 	
 	public void tick()
@@ -28,8 +32,9 @@ public class Points {
 	
 	public void render(Graphics g)
 	{
-		g.drawString("" + points, 565, 169);
-		g.drawString("" + ((int)meters), 565, 249);
+		g.setColor(Color.WHITE);
+		g.setFont(pointFont);
+		g.drawString("" + points, 300, 60);
 	}
 	
 	public static void addPoints(int pts)

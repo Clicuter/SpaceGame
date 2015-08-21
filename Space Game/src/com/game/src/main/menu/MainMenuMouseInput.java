@@ -15,11 +15,13 @@ public class MainMenuMouseInput implements MouseListener, MouseMotionListener {
 	private static boolean homebuttonclicked, homebuttonhovered, againbuttonclicked, againbuttonhovered;
 	private Coins coins;
 	private Game game;
+	private MasteryGUI masteryGUI;
 
-	public MainMenuMouseInput(Coins coins, Game game)
+	public MainMenuMouseInput(Coins coins, Game game, MasteryGUI masteryGUI)
 	{
 		this.coins = coins;
 		this.game = game;
+		this.masteryGUI = masteryGUI;
 	}
 	
 	public void mousePressed(MouseEvent e) {
@@ -94,19 +96,35 @@ public class MainMenuMouseInput implements MouseListener, MouseMotionListener {
 			}
 		}
 		/////////////////////////////// POSTGAME STATE
+		/////////////////////////////// MASTERY STATE
+		if(Game.State == STATE.MASTERY)
+		{
+			masteryGUI.speedButton.updateButton(mx, my, "clicked");
+			masteryGUI.speedPowerUpButton.updateButton(mx, my, "clicked");
+			masteryGUI.powerUpDropRateButton.updateButton(mx, my, "clicked");
+			masteryGUI.coinsButton.updateButton(mx, my, "clicked");
+			masteryGUI.fireRateButton.updateButton(mx, my, "clicked");
+			masteryGUI.fireRatePowerUpButton.updateButton(mx, my, "clicked");
+			masteryGUI.blastRadiusButton.updateButton(mx, my, "clicked");
+			masteryGUI.bonusDamageButton.updateButton(mx, my, "clicked");
+			masteryGUI.enemySpeedButton.updateButton(mx, my, "clicked");
+			masteryGUI.unkillableButton.updateButton(mx, my, "clicked");
+			masteryGUI.shieldPowerUpButton.updateButton(mx, my, "clicked");
+			masteryGUI.gainLivesButton.updateButton(mx, my, "clicked");
+			masteryGUI.homeButton.updateButton(mx, my, "clicked");
+			masteryGUI.resetButton.updateButton(mx, my, "clicked");
+		}
+		/////////////////////////////// MASTERY STATE
 		
 		
 	}
 
-	@Override
 	public void mouseDragged(MouseEvent e) {
-		// TODO Auto-generated method stub
 		
 	}
 
-	@Override
 	public void mouseMoved(MouseEvent e) {
-		// TODO Auto-generated method stub
+		
 		int mx = e.getX();
 		int my = e.getY();
 		///////////////////////////////// MENU STATE
@@ -183,6 +201,25 @@ public class MainMenuMouseInput implements MouseListener, MouseMotionListener {
 			}
 		}
 		/////////////////////////////// POSTGAME STATE
+		/////////////////////////////// MASTERY STATE
+		if(Game.State == STATE.MASTERY)
+		{
+			masteryGUI.speedButton.updateButton(mx, my, "hovered");
+			masteryGUI.speedPowerUpButton.updateButton(mx, my, "hovered");
+			masteryGUI.powerUpDropRateButton.updateButton(mx, my, "hovered");
+			masteryGUI.coinsButton.updateButton(mx, my, "hovered");
+			masteryGUI.fireRateButton.updateButton(mx, my, "hovered");
+			masteryGUI.fireRatePowerUpButton.updateButton(mx, my, "hovered");
+			masteryGUI.blastRadiusButton.updateButton(mx, my, "hovered");
+			masteryGUI.bonusDamageButton.updateButton(mx, my, "hovered");
+			masteryGUI.enemySpeedButton.updateButton(mx, my, "hovered");
+			masteryGUI.unkillableButton.updateButton(mx, my, "hovered");
+			masteryGUI.shieldPowerUpButton.updateButton(mx, my, "hovered");
+			masteryGUI.gainLivesButton.updateButton(mx, my, "hovered");
+			masteryGUI.homeButton.updateButton(mx, my, "hovered");
+			masteryGUI.resetButton.updateButton(mx, my, "hovered");
+		}
+		/////////////////////////////// MASTERY STATE
 	}
 
 
@@ -245,6 +282,7 @@ public class MainMenuMouseInput implements MouseListener, MouseMotionListener {
 				if(masteriesbuttonclicked)
 				{
 					masteriesbuttonclicked = false;
+					Game.State = STATE.MASTERY;
 					// GO TO MASTERIES
 				}
 				
@@ -316,7 +354,25 @@ public class MainMenuMouseInput implements MouseListener, MouseMotionListener {
 			homebuttonclicked = false;
 		}
 		/////////////////////////////// POSTGAME STATE		
-		
+		/////////////////////////////// MASTERY STATE
+		if(Game.State == STATE.MASTERY)
+		{
+			masteryGUI.speedButton.updateButton(mx, my, "released");
+			masteryGUI.speedPowerUpButton.updateButton(mx, my, "released");
+			masteryGUI.powerUpDropRateButton.updateButton(mx, my, "released");
+			masteryGUI.coinsButton.updateButton(mx, my, "released");
+			masteryGUI.fireRateButton.updateButton(mx, my, "released");
+			masteryGUI.fireRatePowerUpButton.updateButton(mx, my, "released");
+			masteryGUI.blastRadiusButton.updateButton(mx, my, "released");
+			masteryGUI.bonusDamageButton.updateButton(mx, my, "released");
+			masteryGUI.enemySpeedButton.updateButton(mx, my, "released");
+			masteryGUI.unkillableButton.updateButton(mx, my, "released");
+			masteryGUI.shieldPowerUpButton.updateButton(mx, my, "released");
+			masteryGUI.gainLivesButton.updateButton(mx, my, "released");
+			masteryGUI.homeButton.updateButton(mx, my, "released");
+			masteryGUI.resetButton.updateButton(mx, my, "released");
+		}
+		/////////////////////////////// MASTERY STATE
 	}
 
 

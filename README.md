@@ -20,7 +20,6 @@ Requires JRE 8
 
   - Windows, Mac, Linux (Any Computer running JRE 8)
 
-
 # Patch Notes/Features:
   - 
   - Rockets Slower Fire Rate Higher Damage

@@ -23,7 +23,7 @@ public class EnemyHuge extends GameObject implements EntityC{
 	
 	public void tick()
 	{
-		y += (1.5 * powerUpStopwatch.getMultiplier() * Mastery.getEnemySpeedMultiplier());
+		y += (2 * powerUpStopwatch.getMultiplier() * Mastery.getEnemySpeedMultiplier());
 		
 	}
 	

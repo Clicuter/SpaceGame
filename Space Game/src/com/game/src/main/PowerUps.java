@@ -26,7 +26,7 @@ public class PowerUps {
 		this.powerupstopwatch = powerupstopwatch;
 		this.powerupspeed = powerupspeed;
 		this.powerupshield = powerupshield;
-		/*
+		/*	
 		fireRateMultiplier = 1;
 		speedMultiplier = 1;
 		enemySpeedMultiplier = 1;
@@ -59,6 +59,8 @@ public class PowerUps {
 			{
 				powerupfirerate.toggleUse();
 			}
+			
+			
 		}
 		else if(powerUpType == 7)
 		{

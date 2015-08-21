@@ -31,6 +31,7 @@ public class Controller {
 	private int killCounter;
 	private double gainLivesMultiplier;
 	private double powerUpDropRateMultiplier;
+	private Animations extraLife;
 	
 	EntityA enta;
 	EntityB entb;
@@ -49,6 +50,7 @@ public class Controller {
 		weaponDropped = false;
 		gainLivesMultiplier = 1;
 		powerUpDropRateMultiplier = 1;
+		extraLife = new Animations(200, 200, "+1 Extra Life");
 	}
 	
 	public void tick()
@@ -71,7 +73,7 @@ public class Controller {
 		for(int i = 0; i < ea.size(); i++)
 		{
 			enta = ea.get(i);
-			if(enta.getY()>= 580 || enta.getY()<= -100)
+			if(enta.getY()>= 1000 || enta.getY()<= -100)
 			{
 				removeEntity(enta);
 			}
@@ -84,10 +86,11 @@ public class Controller {
 				}
 				
 			}
-			if(enemiesKilled == extraLives * killCounter)
+			if(enemiesKilled >= extraLives * killCounter)
 			{
 				extraLives++;
 				enta.setHealth(1);
+				extraLife.playAnimation();
 			}
 			enta.tick();
 		}
@@ -109,7 +112,7 @@ public class Controller {
 		for(int i = 0; i < eb.size(); i++)
 		{
 			entb = eb.get(i);
-			if(entb.getY()>= 580 || entb.getY()<= 0)
+			if(entb.getY()>= 820 || entb.getY()<= 70)
 			{
 				removeEntity(entb);
 			}
@@ -189,11 +192,7 @@ public class Controller {
 		for(int i = 0; i < ec.size(); i++)
 		{
 			entc = ec.get(i);
-			if(entc.getY()> 480)
-			{
-				removeEntity(entc);
-			}
-			if(entc.getY()>= 580)
+			if(entc.getY()>= 820)
 			{
 				removeEntity(entc);
 			}
@@ -203,17 +202,19 @@ public class Controller {
 		for(int i = 0; i < ed.size(); i++)
 		{
 			entd = ed.get(i);
-			if(entd.getY()>= 580 || entd.getY()<= -100)
+			if(entd.getY()>= 820 || entd.getY()<= -100)
 			{
 				removeEntity(entd);
 			}
 			if(Physics.Collision(entd, ea))
 			{
 				upgrades.bulletPickup(entd.getType());
+				System.out.println("" + entd.getType());
 				removeEntity(entd);
 			}
 			entd.tick();
 		}
+		extraLife.tick();
 		 
 	}
 	
@@ -255,6 +256,7 @@ public class Controller {
 			
 			ente.render(g);
 		}
+		extraLife.render(g);
 	}
 	
 	public void addEntity(EntityA block)

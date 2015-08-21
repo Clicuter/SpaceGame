@@ -99,14 +99,67 @@ public class Experience {
 			startExp = 9900;
 			endExp = 12000;
 		}
-		else if(experience > 12000)
+		else if(experience >= 12000 && experience < 14300)
 		{
-			level = 10;
+			level = 11;
 			startExp = 12000;
-			endExp = 130000;
-			extraCoins = ((experience - 12000) / 5);
-			experience = 12000;
-			//UPDATE TEMPCOIN VARIABLE
+			endExp = 14300;
+		}
+		else if(experience >= 14300 && experience < 16800)
+		{
+			level = 12;
+			startExp = 14300;
+			endExp = 16800;
+		}
+		else if(experience >= 16800 && experience < 19500)
+		{
+			level = 13;
+			startExp = 16800;
+			endExp = 19500;
+		}
+		else if(experience >= 19500 && experience < 22400)
+		{
+			level = 14;
+			startExp = 19500;
+			endExp = 22400;
+		}
+		else if(experience >= 22400 && experience < 25500)
+		{
+			level = 15;
+			startExp = 22400;
+			endExp = 25600;
+		}
+		else if(experience >= 25500 && experience < 28800)
+		{
+			level = 16;
+			startExp = 25600;
+			endExp = 28800;
+		}
+		else if(experience >= 28800 && experience < 32300)
+		{
+			level = 17;
+			startExp = 28800;
+			endExp = 32300;
+		}
+		else if(experience >= 32300 && experience < 36000)
+		{
+			level = 18;
+			startExp = 32300;
+			endExp = 36000;
+		}
+		else if(experience >= 36000 && experience < 40000)
+		{
+			level = 19;
+			startExp = 36000;
+			endExp = 40000;
+		}
+		else if(experience >= 40000)
+		{
+			level = 20;
+			startExp = 40000;
+			endExp = 40001;
+			extraCoins = ((experience - 40000) / 5);
+			experience = 40001;
 		}
 	}
 	public static int getExpPercent()

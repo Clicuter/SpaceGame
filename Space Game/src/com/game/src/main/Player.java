@@ -49,26 +49,26 @@ public class Player extends GameObject implements EntityA{
 			x += ((moveLeft + moveRight) * powerUpSpeed.getMultiplier());
 			y += ((moveUp + moveDown)* powerUpSpeed.getMultiplier());
 			
-			if (x <= 38)
+			if (x <= 28)
 			{
 				if(damaged == false && powerupshield.getActive() == false)
 				{
 					setInvulnerable();
 					setHealth(-1);
 				}
-				 x = 38;
+				 x = 28;
 			}
-			if (x >= 490 - 22)
+			if (x >= 520 - 28)
 			{
 				if(damaged == false && powerupshield.getActive() == false)
 				{
 					setInvulnerable();
 					setHealth(-1);
 				}
-				x = 490 -22;
+				x = 520 - 28;
 			}
-			if (y <= 0) y = 0;
-			if (y >= 480 - 32) y = 480 -32;
+			if (y <= 100) y = 100;
+			if (y >= 960 - 196) y = 960 - 196;
 			
 			if(damaged)
 			{
@@ -129,7 +129,7 @@ public class Player extends GameObject implements EntityA{
 			}
 			g.setColor(Color.white);
 			g.setFont(f);
-			g.drawString("" + health, 605, 100);
+			g.drawString("" + health, 490, 60);
 			
 		}
 		
