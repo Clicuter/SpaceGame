@@ -1,6 +1,7 @@
 package com.game.src.main;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
 import java.util.Random;
 
@@ -21,6 +22,7 @@ public class Waves {
 	public static double speed;
 	public static int wave;
 	private int oldwave;
+	private int xOffsetEnemies, randomSpawnContainer;
 	private double spawner;
 	private int antiglitch;
 	private Animations waveAnimation;
@@ -34,6 +36,8 @@ public class Waves {
 		oldwave = 0;
 		antiglitch = 0;
 		waveAnimation = new Animations(230, 200, "Wave 1");
+		xOffsetEnemies = 38;
+		randomSpawnContainer = 430;
 	}
 	
 	public void tick()
@@ -144,7 +148,8 @@ public class Waves {
 	public void render(Graphics g)
 	{
 		g.setColor(Color.white);
-		g.drawString(("" + wave), 580, 340);
+		g.setFont(new Font("arial", Font.PLAIN, 20));
+		g.drawString(("" + wave), 160, 60);
 		waveAnimation.render(g);
 	}
 	
@@ -157,7 +162,7 @@ public class Waves {
 			if(difficulty >= 1 && difficulty <= 10)
 			{
 					ypos = ((r.nextInt(128)) + 48) * - 1;
-					xpos = r.nextInt(380) + 58;
+					xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy(xpos, (ypos), tex));
 				System.out.println("E1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -180,7 +185,7 @@ public class Waves {
 			if(difficulty >= 6 && difficulty <= 10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy(xpos, (ypos), tex));
 				System.out.println("E1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -189,7 +194,7 @@ public class Waves {
 			if(difficulty >= 1 && difficulty <= 5)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy2(xpos, (ypos), tex));
 				System.out.println("E2 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -212,7 +217,7 @@ public class Waves {
 			if(difficulty >= 1 && difficulty <= 2)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy(xpos, (ypos), tex));
 				System.out.println("E1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -220,7 +225,7 @@ public class Waves {
 			if(difficulty == 3)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -228,7 +233,7 @@ public class Waves {
 			if(difficulty >= 4 && difficulty <= 6)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy2(xpos, (ypos), tex));
 				System.out.println("E2 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -236,7 +241,7 @@ public class Waves {
 			if(difficulty >= 7 && difficulty <= 10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy3(xpos, (ypos), tex));
 				System.out.println("E3 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -259,7 +264,7 @@ public class Waves {
 			if(difficulty == 1)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy(xpos, (ypos), tex));
 				System.out.println("E1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -267,7 +272,7 @@ public class Waves {
 			if(difficulty == 2)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -275,7 +280,7 @@ public class Waves {
 			if(difficulty >= 3 && difficulty <= 4)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy2(xpos, (ypos), tex));
 				System.out.println("E2 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -283,7 +288,7 @@ public class Waves {
 			if(difficulty >= 5 && difficulty <= 6)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy3(xpos, (ypos), tex));
 				System.out.println("E3 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -291,7 +296,7 @@ public class Waves {
 			if(difficulty >= 7 && difficulty <=10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy4(xpos, (ypos), tex));
 				System.out.println("E4 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -314,7 +319,7 @@ public class Waves {
 			if(difficulty == 1)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy(xpos, (ypos), tex));
 				System.out.println("E1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -322,7 +327,7 @@ public class Waves {
 			if(difficulty == 2)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -330,7 +335,7 @@ public class Waves {
 			if(difficulty == 3)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy2(xpos, (ypos), tex));
 				System.out.println("E2 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -338,7 +343,7 @@ public class Waves {
 			if(difficulty == 4)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag2(xpos, (ypos), tex));
 				System.out.println("EZ2 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -346,7 +351,7 @@ public class Waves {
 			if(difficulty >= 5 && difficulty <= 6)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy3(xpos, (ypos), tex));
 				System.out.println("E3 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -354,7 +359,7 @@ public class Waves {
 			if(difficulty >= 7 && difficulty <=10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy4(xpos, (ypos), tex));
 				System.out.println("E4 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -377,7 +382,7 @@ public class Waves {
 			if(difficulty == 1)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -385,14 +390,14 @@ public class Waves {
 			if(difficulty == 2)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				c.addEntity(new EnemyZigZag2(xpos, (ypos), tex));
 				System.out.println("EZ2 Spawned at ( " + xpos + " , " + ypos + ")");
 			}
 			if(difficulty >= 3 && difficulty <= 4)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy3(xpos, (ypos), tex));
 				System.out.println("E3 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -400,7 +405,7 @@ public class Waves {
 			if(difficulty >= 5 && difficulty <=6)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy4(xpos, (ypos), tex));
 				System.out.println("E4 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -408,7 +413,7 @@ public class Waves {
 			if(difficulty >= 7 && difficulty <=10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy5(xpos, (ypos), tex));
 				System.out.println("E5 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -431,7 +436,7 @@ public class Waves {
 			if(difficulty == 1)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -439,14 +444,14 @@ public class Waves {
 			if(difficulty == 2)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				c.addEntity(new EnemyZigZag2(xpos, (ypos), tex));
 				System.out.println("EZ2 Spawned at ( " + xpos + " , " + ypos + ")");
 			}
 			if(difficulty == 3)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy3(xpos, (ypos), tex));
 				System.out.println("E3 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -454,7 +459,7 @@ public class Waves {
 			if(difficulty >= 4 && difficulty <=5)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy4(xpos, (ypos), tex));
 				System.out.println("E4 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -462,7 +467,7 @@ public class Waves {
 			if(difficulty >= 6 && difficulty <=7)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy5(xpos, (ypos), tex));
 				System.out.println("E5 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -470,7 +475,7 @@ public class Waves {
 			if(difficulty >= 8 && difficulty <=10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy6(xpos, (ypos), tex));
 				System.out.println("E6 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -493,7 +498,7 @@ public class Waves {
 			if(difficulty == 1)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -501,14 +506,14 @@ public class Waves {
 			if(difficulty == 2)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				c.addEntity(new EnemyZigZag2(xpos, (ypos), tex));
 				System.out.println("EZ2 Spawned at ( " + xpos + " , " + ypos + ")");
 			}
 			if(difficulty == 3)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy3(xpos, (ypos), tex));
 				System.out.println("E3 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -516,7 +521,7 @@ public class Waves {
 			if(difficulty == 4)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy4(xpos, (ypos), tex));
 				System.out.println("E4 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -524,7 +529,7 @@ public class Waves {
 			if(difficulty >= 5 && difficulty <=6)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy5(xpos, (ypos), tex));
 				System.out.println("E5 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -532,7 +537,7 @@ public class Waves {
 			if(difficulty >= 7 && difficulty <=10)
 			{
 				ypos = ((r.nextInt(128)) + 48) * - 1;
-				xpos = r.nextInt(380) + 58;
+				xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy6(xpos, (ypos), tex));
 				System.out.println("E6 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -565,7 +570,7 @@ public class Waves {
 				if(difficulty == 1)
 				{
 					ypos = ((r.nextInt(128)) + 48 + antiglitch) * - 1;
-					xpos = r.nextInt(356) + 58;
+					xpos = r.nextInt(356) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyHuge(xpos, (ypos), tex));
 				System.out.println("EH1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -573,7 +578,7 @@ public class Waves {
 				else
 				{
 					ypos = ((r.nextInt(128)) + 48) * - 1;
-					xpos = r.nextInt(380) + 58;
+					xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag(xpos, (ypos), tex));
 				System.out.println("EZ1 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -582,7 +587,7 @@ public class Waves {
 			if(difficulty >= 2 && difficulty <= 3)
 			{
 					ypos = ((r.nextInt(128)) + 48) * - 1;
-					xpos = r.nextInt(380) + 58;
+					xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new EnemyZigZag2(xpos, (ypos), tex));
 				System.out.println("E6 Spawned at ( " + xpos + " , " + ypos + ")");
@@ -590,7 +595,7 @@ public class Waves {
 			if(difficulty >= 4 && difficulty <= 10)
 			{
 					ypos = ((r.nextInt(128)) + 48) * - 1;
-					xpos = r.nextInt(380) + 58;
+					xpos = r.nextInt(randomSpawnContainer) + xOffsetEnemies;
 				
 				c.addEntity(new Enemy6(xpos, (ypos), tex));
 				System.out.println("E6 Spawned at ( " + xpos + " , " + ypos + ")");

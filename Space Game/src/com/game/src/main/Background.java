@@ -2,41 +2,41 @@ package com.game.src.main;
 
 public class Background {
 
-	private double y = 0;
-	private double y2 = -480;
-	private double y3 = 0;
-	private double y4 = -480;
+	private double y = 72;
+	private double y2 = -660;
+	private double y3 = 72;
+	private double y4 = -660;
 	
 	public void tick()
 	{
-		if(y >= 480)
+		if(y >= 790)
 		{
-			y = -480;
+			y = -660;
 		}
 		else
 		{
 		y += .25;
 		}
-		if(y2 >= 480)
+		if(y2 >= 790)
 		{
-			y2  = -480;
+			y2  = -660;
 		}
 		else
 		{
 			y2 += .25;
 		}
 		// ROCK WALL
-		if(y3 >= 480)
+		if(y3 >= 790)
 		{
-			y3 = -479;
+			y3 = -660;
 		}
 		else
 		{
 		y3 += 1;
 		}
-		if(y4 >= 480)
+		if(y4 >= 790)
 		{
-			y4  = -479;
+			y4  = -660;
 		}
 		else
 		{

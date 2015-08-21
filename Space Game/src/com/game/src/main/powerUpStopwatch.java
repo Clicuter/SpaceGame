@@ -1,5 +1,6 @@
 package com.game.src.main;
 
+import java.awt.Font;
 import java.awt.Graphics;
 
 public class powerUpStopwatch {
@@ -20,8 +21,8 @@ public class powerUpStopwatch {
 		timer = 0;
 		duration = 10;
 		enemySpeedMultiplier = 1;
-		x = 566;
-		y = 408;
+		x = 40;
+		y = 846;
 		available = false;
 	}
 	
@@ -42,11 +43,12 @@ public class powerUpStopwatch {
 	public void render(Graphics g)
 	{
 		if(available == true)
-			g.drawImage(tex.powerupstopwatch, x, y, 48, 48, null);
+			g.drawImage(tex.powerupstopwatch, x, y, 64, 64, null);
 		if(active == true)
 		{
-			g.drawImage(tex.powerupstopwatch, 430, 40, null);
-			g.drawString("" + (duration - (timer/60)), 465, 60);
+			g.drawImage(tex.powerupstopwatch, 486, 899, null);
+			g.setFont(new Font("arial", 20, 20));
+			g.drawString("" + (duration - (timer/60)), 450, 922);
 		}
 	}
 	

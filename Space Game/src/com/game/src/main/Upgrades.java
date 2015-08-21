@@ -37,22 +37,22 @@ public class Upgrades {
 	}
 	public void render(Graphics g)
 	{
-		g.drawString("" + bulletLevel, 468, 25);
+		g.drawString("" + bulletLevel, 450, 852);
 		if(bulletType == 1)
 		{
-			g.drawImage(tex.dropmissile, 430, 4, null);
+			g.drawImage(tex.dropmissile, 486, 830, null);
 		}
 		if(bulletType == 2)
 		{
-			g.drawImage(tex.dropscattershot, 430, 4, null);
+			g.drawImage(tex.dropscattershot, 486, 830, null);
 		}
 		if(bulletType == 3)
 		{
-			g.drawImage(tex.droplaser, 430, 4, null);
+			g.drawImage(tex.droplaser, 486, 830, null);
 		}
 		if(bulletType == 4)
 		{
-			g.drawImage(tex.droprocket, 430, 4, null);
+			g.drawImage(tex.droprocket, 486, 830, null);
 		}
 	}
 	

@@ -1,10 +1,10 @@
-Coins 1469
+Coins 7604
 
-Experience 5334
+Experience 16175
 
-Level 7
+Level 12
 
-Mastery 6
+Mastery 11
 
 fireRateCounter 6
 
@@ -14,7 +14,7 @@ blastRadiusCounter 0
 
 bonusDamageCounter 0
 
-enemySpeedCounter 0
+enemySpeedCounter 5
 
 postDamageUnkillableCounter 0
 

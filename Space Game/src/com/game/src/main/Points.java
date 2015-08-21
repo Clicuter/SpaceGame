@@ -34,8 +34,7 @@ public class Points {
 	{
 		g.setColor(Color.WHITE);
 		g.setFont(pointFont);
-		g.drawString("" + points, 565, 169);
-		g.drawString("" + ((int)meters), 565, 249);
+		g.drawString("" + points, 300, 60);
 	}
 	
 	public static void addPoints(int pts)

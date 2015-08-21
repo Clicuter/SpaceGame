@@ -1,5 +1,6 @@
 package com.game.src.main;
 
+import java.awt.Font;
 import java.awt.Graphics;
 
 public class powerUpFireRate {
@@ -21,8 +22,8 @@ public class powerUpFireRate {
 		timer = 0;
 		duration = 10;
 		fireRateMultiplier = 1;
-		x = 566;
-		y = 408;
+		x = 40;
+		y = 846;
 		available = false;
 	}
 	
@@ -43,11 +44,12 @@ public class powerUpFireRate {
 	public void render(Graphics g)
 	{
 		if(available == true)
-			g.drawImage(tex.powerupfirerate, x, y, 48, 48, null);
+			g.drawImage(tex.powerupfirerate, x, y, 64, 64, null);
 		if(active == true)
 		{
-			g.drawImage(tex.powerupfirerate, 430, 40, null);
-			g.drawString("" + (duration - (timer/60)), 465, 60);
+			g.drawImage(tex.powerupfirerate, 486, 899, null);
+			g.setFont(new Font("arial", 20, 20));
+			g.drawString("" + (duration - (timer/60)), 450, 922);
 		}
 	}
 	

@@ -34,27 +34,27 @@ public class EnemyZigZag extends GameObject implements EntityC{
 	public void tick()
 	{
 		y += (ySpeed * Waves.speed * powerUpStopwatch.getMultiplier() * Mastery.getEnemySpeedMultiplier());
-		if(x >= rightBoundary || x >= 452)
+		if(x >= rightBoundary || x >= 466)
 		{
-			if(x >= 452)
+			if(x >= 466)
 			{
-			leftBoundary = 452 - (rightBoundary - leftBoundary);
-			rightBoundary = 452;
+			leftBoundary = 466 - (rightBoundary - leftBoundary);
+			rightBoundary = 466;
 			xSpeed = (xSpeed * -1);
-			x = 451;
+			x = 465;
 			}
 			else
 			xSpeed = (xSpeed * -1);
 
 		}
-		if(x <= leftBoundary || x <= 58)
+		if(x <= leftBoundary || x <= 44)
 		{
-			if(x <= 58)
+			if(x <= 44)
 			{
-				rightBoundary = 58 + (rightBoundary - leftBoundary);
-				leftBoundary = 58;
+				rightBoundary = 44 + (rightBoundary - leftBoundary);
+				leftBoundary = 44;
 				xSpeed = (xSpeed * -1);
-				x = 59;
+				x = 45;
 			}
 			else
 			xSpeed = (xSpeed * -1);
